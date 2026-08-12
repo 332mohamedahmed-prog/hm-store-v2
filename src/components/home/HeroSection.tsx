@@ -7,7 +7,7 @@ export default function HeroSection() {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="/images/hero-bg.jpg"
+          src="https://images.pexels.com/photos/7816722/pexels-photo-7816722.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
           alt="HM — أناقة المرأة"
           className="w-full h-full object-cover object-center"
         />
