@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+/* ─── Custom Theme Tokens ─────────────────────────────────────── */
+@theme {
+  --color-near-black: #0A0A0A;
+  --color-dark-bg: #121212;
+  --color-warm-gold: #C9A227;
+  --color-gold-light: #B8935A;
+  --color-cream: #F5F0E6;
+  --color-cream-light: #FAFAF7;
+  --color-beige: #F7F3EC;
+  --color-dark-text: #1A1A1A;
+  --color-gold-dim: #8B7536;
+
+  --font-heading: 'Amiri', serif;
+  --font-body: 'Tajawal', sans-serif;
+}
+
+/* ─── Base Styles ─────────────────────────────────────────────── */
+html {
+  direction: rtl;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-beige);
+  color: var(--color-dark-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Heading Font ────────────────────────────────────────────── */
+h1, h2, h3, .font-heading {
+  font-family: var(--font-heading);
+}
+
+/* ─── Gold Divider ────────────────────────────────────────────── */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(to left, transparent, var(--color-warm-gold), transparent);
+}
+
+/* ─── Custom Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-near-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-warm-gold);
+  border-radius: 4px;
+}
+
+/* ─── Selection Color ─────────────────────────────────────────── */
+::selection {
+  background-color: var(--color-warm-gold);
+  color: var(--color-near-black);
+}
+
+/* ─── Image hover overlay ─────────────────────────────────────── */
+.img-overlay {
+  position: relative;
+  overflow: hidden;
+}
+.img-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.img-overlay:hover::after {
+  opacity: 1;
+}
+
+/* ─── Animations ──────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pan {
+  0%   { transform: translate(0%, 0%); }
+  25%  { transform: translate(-3%, -2%); }
+  50%  { transform: translate(-5%, 0%); }
+  75%  { transform: translate(-2%, -3%); }
+  100% { transform: translate(0%, 0%); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-pan {
+  animation: pan 20s ease-in-out infinite;
+}
